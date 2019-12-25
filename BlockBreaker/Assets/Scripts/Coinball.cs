@@ -1,0 +1,43 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Coinball : MonoBehaviour
+{
+
+    [SerializeField] bool lockStart = true;
+    [Range(0.1f, 10f)][SerializeField] float ballPositionY = 2;
+    [Range(0.1f, 50f)][SerializeField] float speed = 2f;
+    [SerializeField] Paddle paddle;
+
+    Vector2 velocity = new Vector2(0,0);
+    Vector2 position = new Vector2(0,0);
+    Rigidbody2D rigidBody;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+
+        rigidBody = GetComponent<Rigidbody2D>();
+        paddle = FindObjectOfType<Paddle>();
+        position.y = ballPositionY;
+        velocity.y = speed;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0) && lockStart)
+        {
+            lockStart = false;
+            rigidBody.velocity = velocity;
+        };
+
+        if (lockStart)
+        {
+            position.x = paddle.transform.position.x;
+            transform.position = position;
+        }
+
+    }
+}
