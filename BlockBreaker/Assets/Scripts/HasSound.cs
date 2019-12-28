@@ -1,19 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 
-public class Loose : MonoBehaviour
+public class HasSound : MonoBehaviour
 {
-    [SerializeField] AudioClip[] audioClips;
-    AudioSource audioSource;
-    public Level level;
-    private int playerScore;
+
+    [SerializeField] public AudioClip[] audioClips;
+    private AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        level = FindObjectOfType<Level>();
+        
     }
 
     // Update is called once per frame
@@ -22,13 +21,9 @@ public class Loose : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         int index = (int)UnityEngine.Random.Range(0, audioClips.Length - 1);
         audioSource.PlayOneShot(audioClips[index]);
-        Debug.Log("you lost.");
-
-        Thread.Sleep(1500);
-        level.GameOver();
     }
 }

@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2542117486618675215
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2542117486618675213}
+  - component: {fileID: 2542117486618675214}
+  m_Layer: 0
+  m_Name: Object Loader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2542117486618675213
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2542117486618675215}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.8917065, y: 8.299923, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2542117486618675214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2542117486618675215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de5c0d0f3003da94b803311c63e47531, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockIncrement: 5
+  obstacleIncrement: 2
+  destructables:
+  - {fileID: 4816648179907029819, guid: 0fb7cb05333bf8548933e5e6378c3fca, type: 3}
+  - {fileID: 3120958698037332414, guid: c8e730c1c33b9164daf2fd32c035de6b, type: 3}
+  - {fileID: 7774576510401196064, guid: aa2dad4fc87f8914980ce927db668139, type: 3}
+  - {fileID: 8154732207378017481, guid: 2b5729f77187c704586965933191abc8, type: 3}
+  obstacles:
+  - {fileID: 8929243274918084649, guid: 5c451403e27174b4a978b75a43127d5a, type: 3}
+  - {fileID: 2605693160839369227, guid: f6bc575adb9e62c49901003ee1ad3eb0, type: 3}
+  - {fileID: 5904759716571350956, guid: 7abffb66cb2758a47b1a5653aad4890b, type: 3}
+  - {fileID: 276465165961535123, guid: ec1e15bb3263b834a9d6ec20c562a4a5, type: 3}
