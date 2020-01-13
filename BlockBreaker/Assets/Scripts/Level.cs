@@ -13,12 +13,8 @@ public class Level : MonoBehaviour
     [Range(.1f, 3f)][SerializeField] float gameSpeed = 1f;
     [SerializeField] TextMeshProUGUI displayScore;
     [SerializeField] TextMeshProUGUI displayLevel;
-
-    //private List<Vector2> objectPositions = new List<Vector2>();
-    //[SerializeField] int blockIncrement = 5;
-    //[SerializeField] int obstacleIncrement = 2;
-    //[SerializeField] GameObject[] destructables;
-    //[SerializeField] GameObject[] obstacles;
+    AudioSource audioSource;
+    ObjectLoader objectLoader;
 
     private void Awake()
     {
@@ -33,12 +29,16 @@ public class Level : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
 
+        objectLoader = FindObjectOfType<ObjectLoader>();
         
     }
 
     // Start is called before the first frame update
     void Start()
     {
+
+        audioSource = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
@@ -62,13 +62,18 @@ public class Level : MonoBehaviour
     }
     public void NextLevel()
     {
+        Destrubtable.totalDestructable = 0;
+        audioSource.Play();
+        addLevel();
         int index = SceneManager.GetActiveScene().buildIndex;
         SceneChanger.SceneChange(index);
+
     }
 
     public void GameOver()
     {
         LevelReset();
+        Destrubtable.totalDestructable = 0;
         SceneChanger.SceneChange(2);
     }
 

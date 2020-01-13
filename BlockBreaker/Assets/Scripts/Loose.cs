@@ -26,9 +26,8 @@ public class Loose : MonoBehaviour
     {
         int index = (int)UnityEngine.Random.Range(0, audioClips.Length - 1);
         audioSource.PlayOneShot(audioClips[index]);
-        Debug.Log("you lost.");
-
-        Thread.Sleep(1500);
+        //AudioSource.PlayClipAtPoint(audioClips[index], level.transform.position);
         level.GameOver();
     }
+
 }

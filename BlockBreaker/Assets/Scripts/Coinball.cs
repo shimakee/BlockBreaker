@@ -43,10 +43,4 @@ public class Coinball : MonoBehaviour
             transform.position = position;
         }
     }
-
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    int index = (int)UnityEngine.Random.Range(0, audioClips.Length - 1);
-    //    audioSource.PlayOneShot(audioClips[index]);
-    //}
 }

@@ -7,31 +7,34 @@ public class ObjectLoader : MonoBehaviour
 {
     private int currentLevel = 1;
     private Level level;
-    [SerializeField] int blockIncrement = 5;
-    [SerializeField] int obstacleIncrement = 2;
     [SerializeField] GameObject[] destructables;
     [SerializeField] GameObject[] obstacles;
+    [SerializeField] int blockIncrement = 5;
+    [SerializeField] int obstacleIncrement = 2;
     private List<Vector2> objectPositions = new List<Vector2>();
 
     // Start is called before the first frame update
     void Start()
     {
-        CreateBlock();
-        CreateObstracle();
         level = FindObjectOfType<Level>();
+
+        int nBlocks = level._currentLevel * blockIncrement;
+        int nObstacles = level._currentLevel * obstacleIncrement;
+
+
+        CreateBlock(nBlocks);
+        CreateObstracle(nObstacles);
     }
 
     // Update is called once per frame
     void Update()
     {
-        currentLevel = level._currentLevel;
     }
 
-    public void CreateBlock()
+    public void CreateBlock(int nBlocks)
     {
-        int numberOfBlocks = currentLevel * blockIncrement;
-        Debug.Log(numberOfBlocks);
-        for (int i = 0; i < numberOfBlocks; i++)
+        Debug.Log(nBlocks);
+        for (int i = 0; i < nBlocks; i++)
         {
             if (objectPositions.Count > 44)
                 return;
@@ -43,10 +46,9 @@ public class ObjectLoader : MonoBehaviour
 
     }
 
-    public void CreateObstracle()
+    public void CreateObstracle(int nObstracle)
     {
-        int numberOfObstacles = currentLevel * obstacleIncrement;
-        for (int i = 0; i < numberOfObstacles; i++)
+        for (int i = 0; i < nObstracle; i++)
         {
             if (objectPositions.Count > 44)
                 return;

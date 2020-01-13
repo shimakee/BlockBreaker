@@ -24,7 +24,9 @@ public class Destrubtable : MonoBehaviour
     {
 
         totalDestructable++;
-        
+        Debug.Log("Total destructable ." + totalDestructable);
+
+
         spriteRenderer = GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
         hits = sprite.Length;
@@ -52,13 +54,13 @@ public class Destrubtable : MonoBehaviour
 
             level.addScore(pointsWorthOnDestroy);
             totalDestructable--;
+            Debug.Log("Total destructable ."+totalDestructable);
+
             AudioSource.PlayClipAtPoint(audioClip, Camera.main.transform.position);
 
             if (totalDestructable <= 0)
             {
                 Debug.Log("You win.");
-                level.addLevel();
-                Thread.Sleep(1500);
                 level.NextLevel();
             }
 
